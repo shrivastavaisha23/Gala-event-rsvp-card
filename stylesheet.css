@@ -1,0 +1,194 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: linear-gradient(135deg, #f6d5f7, #fbe9d7);
+    min-height: 100vh;
+}
+
+h1, h2, h3 {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Card Styles */
+.card {
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1), 
+                0 5px 15px rgba(0, 0, 0, 0.05),
+                0 0 0 1px rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        45deg,
+        transparent 0%,
+        rgba(255, 255, 255, 0.1) 50%,
+        transparent 100%
+    );
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite linear;
+    pointer-events: none;
+}
+
+/* Decorative Elements */
+.decoration-top {
+    height: 8px;
+    background: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+}
+
+.decorative-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.1;
+    z-index: -1;
+}
+
+.header-text {
+    background: linear-gradient(90deg, #FF6A88, #FF99AC, #FFC796);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+
+.divider {
+    height: 3px;
+    background: linear-gradient(90deg, #FF9A8B 0%, #FF6A88 55%, #FF99AC 100%);
+    border-radius: 3px;
+}
+
+/* Button Styles */
+.btn-primary {
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #FF6A88 0%, #FF99AC 100%);
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #FF99AC 0%, #FF6A88 100%);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-primary:hover::before {
+    left: 0;
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(255, 106, 136, 0.3), 
+                0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-secondary {
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, #E0C3FC 0%, #8EC5FC 100%);
+    color: #4a5568;
+    border: none;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-secondary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%);
+    transition: all 0.4s ease;
+    z-index: -1;
+}
+
+.btn-secondary:hover::before {
+    left: 0;
+}
+
+.btn-secondary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 14px rgba(142, 197, 252, 0.3), 
+                0 3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+.form-input {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.form-input:focus {
+    border-color: #FF99AC;
+    box-shadow: 0 0 0 3px rgba(255, 153, 172, 0.2);
+    background-color: white;
+}
+
+/* Success Message */
+.success-message {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.5s ease;
+}
+
+.success-message.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* Footer */
+.footer {
+    background: linear-gradient(90deg, rgba(255, 154, 139, 0.1) 0%, rgba(255, 106, 136, 0.1) 55%, rgba(255, 153, 172, 0.1) 100%);
+}
+
+/* Confetti */
+.confetti {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: #f00;
+    border-radius: 0;
+    opacity: 0;
+}
+
+/* Animations */
+@keyframes shimmer {
+    0% { transform: translateX(-50%) rotate(45deg); }
+    100% { transform: translateX(150%) rotate(45deg); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+.animate-delay-100 { animation-delay: 0.1s; }
+.animate-delay-200 { animation-delay: 0.2s; }
+.animate-delay-300 { animation-delay: 0.3s; }
+
+@keyframes fall {
+    0% { transform: translateY(0) rotate(0deg); opacity: 0; }
+    10% { opacity: 1; }
+    100% { transform: translateY(400px) rotate(360deg); opacity: 0;
